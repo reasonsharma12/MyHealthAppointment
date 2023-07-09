@@ -11,7 +11,7 @@ router.get('/hospital', function(req, res, next) {
   res.render('hospital');
 }); 
 router.get('/hospitaldetail', function(req, res, next) {
-  res.render('hospitaldetail',{hospitalName:'lumbiniTechnicalHopital', specialistNamesList: ["Ram", "Shyam"], specilities:"orthopedic"});
+  res.render('hospitaldetail',{hospitalName: 'lions eye',address:'butwal-2',phoneNumber:"542108",});
 });
 
 router.post("/saveappointment",  async function (req, res, next) {

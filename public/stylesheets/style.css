@@ -1,5 +1,4 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -11,6 +10,23 @@ a {
 .disp-flex{
   display: flex;
 }
+.row{
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.badge text-bg-primary {
+  width: 100%;
+  padding: 12px 15px;
+  outline: none;
+  margin-bottom: 20px;
+  border: 1px solid #e1e1e1;
+  margin-bottom: 20px;
+
+}
+
 
 #form-details form{
   width: 65%;
