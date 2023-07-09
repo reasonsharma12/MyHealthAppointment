@@ -3,17 +3,55 @@
   <head>
     <title>MyHealthAppoitment</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/index.css'/>
   </head>
   <body>
     <section id="header">
       <a href="#"><img src="images/Hlogo.jpg" class="logo"></a>
       <div>
         <ul id="navbar">
-          <li><a href="./hospital" class="active" class="active" >Appointment</a></li>
-            <li><a href="/login">Login</a></li>
+          <li><a href="./hospital" class="active" class="active" ><Make an appointment></a></li>
+            <li><a href="/login">Operational Login</a></li>
             <!-- <li><a href="/SignUp">SignUp</a></li> -->
         </ul>
+        <!-- <img src="images/care.jpg" class="care" style="height: 300px; width:250 ;">  -->
+        <!-- <div>
+          <img src="image/d.jpg" alt="" style="height: 300px; width: 250px;">
+      </div> -->
     </div>
       </section>
+    <div id="myModal" class="modal">
+      
+        <div class="modal-content">
+          <button class="close" onclick="closeModal()">&times;</button>
+          <p>wait for moment to confirm...</p>
+        </div>
+    </div>
+    <img src="images/care.jpg" class="care" style="height: 100%; width:100% ;"> 
   </body>
+  <script>
+       var modal = document.getElementById("myModal");
+
+    function showHospitals() {
+      
+      window.location.href = '/hospital'
+    }
+       
+    function closeModal() {
+      modal.style.display = "none";
+      localStorage.removeItem("confirmationModal");
+    }
+    // When the user clicks the button, open the modal
+    (() => {
+      // debugger
+
+      confirmationModal = localStorage.getItem("confirmationModal");
+
+      if (confirmationModal) {
+        modal.style.display = "block";
+      } else {
+        modal.style.display = "none";
+      }
+    })()
+  </script>
 </html>

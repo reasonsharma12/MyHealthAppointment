@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var patientinfo= require("../model/database");
+var patientinfo= require("../model/patientList");
+var hospitalInfo= require("../model/hospitalList");
 
 router.get("/add", function (req, res, next) {
   patientinfo.find().then((patientDetails) => {
@@ -9,10 +10,14 @@ router.get("/add", function (req, res, next) {
 });
 
 router.get('/hospital', function(req, res, next) {
-  res.render('hospital');
+  
+  hospitalInfo.find().then((information) => {
+   
+  res.render('hospital',{  hospitalList: information });
+  }); 
 }); 
 router.get('/hospitaldetail', function(req, res, next) {
-  res.render('hospitaldetail',{hospitalName:'lumbiniTechnicalHopital', specialistNamesList: ["Ram", "Shyam"], specilities:"orthopedic"});
+  res.render('hospitaldetail',{hospitalName: 'lions eye',address:'butwal-2',phoneNumber:"542108",});
 });
 
 
