@@ -11,32 +11,34 @@
         <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
     </div>
+    <% patientDetails.forEach((appoint) =>{ %>
     <div class="row">
 
         <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
+        
+
+        <!-- <div class="col-xl-3 col-md-6 mb-4"> -->
             <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                 Patient Information</div>
-                            <div class="patient-information">FullName:</div>
-                            <div class="patient-information">Age:</div>
-                            <div class="patient-information">Date of birth:</div>
-                            <div class="patient-information">Gender:</div>
-                            <div class="patient-information">Mobileno:</div>
-                            <div class="patient-information">Email:</div>
-                            <div class="patient-information">Address:</div>
+                            <div class="patient-information">FullName:<%= appoint.FullName %></div>
+                            <div class="patient-information">Age:<%= appoint.Age %></div>
+                            <div class="patient-information">Date of birth:<%= appoint.DateOfBirth %></div>
+                            <div class="patient-information">Gender: <%= appoint.Gender %></div>
+                            <div class="patient-information">Mobileno:<%=appoint.PhoneNumber %></div>
+                            <div class="patient-information">Email: <%= appoint.Email%></div>
+                            <div class="patient-information">Address: <%= appoint.Address %></div>
                         </div>
                         
                         
-                        
-                    </div>
+                      </div>
                     
                      <div class="btn-group" role="group" aria-label="Basic example">
                         <div>
-                          <button type="button" class="btn btn-primary" style="margin-right: 20px; padding-right: 10px;">Edit</button>
+                          <button type="button" class="btn btn-primary" style="margin-right: 20px; padding-right: 10px;" onclick="editPatientDetails('<%= appoint.id %>')" >Edit</button>
                         </div>
                         <form action="/sendmail" method="post">
                           <button class="btn btn-primary" type="submit">Confirm</button>
@@ -47,11 +49,15 @@
                 </div>
             </div>
         </div>
-      
-        
-
-        
     </div> 
+    <% }) %>
     
   </body>
+  <script>
+    function editPatientDetails(patientId) {
+      debugger
+      console.log('here', patientId)
+      window.location.href = '/edit/'+patientId;
+    }
+  </script>
 </html>
