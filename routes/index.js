@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var patientinfo= require("../model/database");
+var patientinfo= require("../model/patientList");
+var hospitalInfo= require("../model/hospitalList");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -8,9 +9,15 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/hospital', function(req, res, next) {
-  res.render('hospital');
+  
+  hospitalInfo.find().then((information) => {
+   
+  res.render('hospital',{  hospitalList: information });
+  }); 
 }); 
 router.get('/hospitaldetail', function(req, res, next) {
+ 
+  
   res.render('hospitaldetail',{hospitalName:'lumbiniTechnicalHopital', specialistNamesList: ["Ram", "Shyam"], specilities:"orthopedic"});
 });
 
@@ -27,9 +34,6 @@ router.post("/saveappointment",  async function (req, res, next) {
       "appoitmentTime": req.body.appoitmentTime,
     }
   );
-  // console.log(formData);
-  // expenses.push({ ...formData, _id: expenses.length + 1 });
-  // res.redirect("/");
 
    await patientinfo.insertMany(formData) 
     res.redirect('/');
