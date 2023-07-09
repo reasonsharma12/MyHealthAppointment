@@ -43,4 +43,8 @@ router.post('/saveappointment', function(req, res, next) {
   res.render('index');
 });
 
+router.get ('/add',function(req,res){
+  res.render('dashboard')
+});
+
 module.exports = router;
