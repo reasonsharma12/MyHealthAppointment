@@ -12,6 +12,10 @@ var SignUpRouter = require('./routes/SignUp');
 
 var app = express();
 
+mongoose.connect('mongodb://localhost/PatientList')
+.then(()=> {console.log('connected to database')})
+.catch((e)=> {console.log("error",e)});
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
