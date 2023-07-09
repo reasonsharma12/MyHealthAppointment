@@ -4,7 +4,7 @@ const hospitalInfo = mongoose.Schema({
     address: String,
     establishDate: Date,
     email:String,
-    phoneNumber: Number,
+    phoneNumber: String,
 });
 
 

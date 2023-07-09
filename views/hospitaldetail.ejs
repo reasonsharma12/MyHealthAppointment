@@ -16,6 +16,7 @@
     <section id="header">
       <a href="#"><img src="images/Hlogo.jpg" class="logo" /></a>
     </section>
+
     <div style="align-items: center">
       <div style="height: 400px">
         <img
@@ -26,15 +27,15 @@
       </div>
       <div class="mb-3">
         <label class="form-label">Hospital Name:</label>
-        lions eye
+        <%= information.hospitalName %>
       </div>
       <div class="mb-3">
         <label class="form-label">Address:</label>
-        butwal
+        <%= information.address %>
       </div>
       <div class="mb-3">
         <label class="form-label">Phone Number:</label>
-        9888
+        <%= information.phoneNumber %>
       </div>
       <div class="mb-3">
         <label  class="form-label">Description:</label>
@@ -42,5 +43,6 @@
       </div>
       <a href="/appointmentForm " class="btn btn-primary" type="submit">General Appointment</a>
     </div>
+  
   </body>
 </html>

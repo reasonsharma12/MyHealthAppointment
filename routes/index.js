@@ -15,8 +15,10 @@ router.get('/hospital', function(req, res, next) {
   res.render('hospital',{  hospitalList: information });
   }); 
 }); 
-router.get('/hospitaldetail', function(req, res, next) {
-  res.render('hospitaldetail',{hospitalName: 'lions eye',address:'butwal-2',phoneNumber:"542108",});
+
+router.get("/hospitaldetail/:id", async function (req, res) {
+  const information = await hospitalInfo.findOne({ _id:req.params.id})
+  res.render("hospitaldetail", { information: information});
 });
 
 router.post("/saveappointment",  async function (req, res, next) {
